@@ -613,7 +613,7 @@ auto MainWindow::clearToolbar() -> ToolbarData* {
             ToolMenuHandler::unloadToolbar(this->toolbarWidgets[i]);
         }
 
-        this->toolbar->freeDynamicToolbarItems();
+        this->toolbar->deleteAllToolbarItems();
     }
 
     ToolbarData* oldData = this->selectedToolbar;
@@ -625,7 +625,7 @@ auto MainWindow::clearToolbar() -> ToolbarData* {
 
 void MainWindow::loadToolbar(ToolbarData* d) {
     this->selectedToolbar = d;
-
+    this->clearToolbar();
     for (int i = 0; i < TOOLBAR_DEFINITIONS_LEN; i++) {
         this->toolbar->load(d, this->toolbarWidgets[i], TOOLBAR_DEFINITIONS[i].propName,
                             TOOLBAR_DEFINITIONS[i].horizontal);
