@@ -48,9 +48,9 @@ public:
 
     void registerMenupoint(GtkWidget* widget, ActionType type, ActionGroup group = GROUP_NOGROUP);
 
-    void initToolItems();   //default one
+    void initToolItems();  // default one
     AbstractToolItem* addToolItemsfromName(string name);
-    void connectSignalsOfToolItems();   //function to call after the composition of toolItems vector
+    void connectSignalsOfToolItems();  // function to call after the composition of toolItems vector
 
     void setUndoDescription(const string& description);
     void setRedoDescription(const string& description);
