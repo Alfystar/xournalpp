@@ -392,16 +392,27 @@ void ToolMenuHandler::signalConnectCallback(GtkBuilder* builder, GObject* object
 
 void ToolMenuHandler::initToolItems() {
     // this is the indispensable tools
-    addToolItemsfromName("UNDO");
-    addToolItemsfromName("REDO");
-    addToolItemsfromName("SELECT_FONT");
-    addToolItemsfromName("AUDIO_PAUSE_PLAYBACK");
-    addToolItemsfromName("AUDIO_STOP_PLAYBACK");
-    addToolItemsfromName("AUDIO_SEEK_BACKWARDS");
-    addToolItemsfromName("AUDIO_SEEK_FORWARDS");
-    addToolItemsfromName("PAGE_SPIN");
-    addToolItemsfromName("LAYER");
-    addToolItemsfromName("SELECT_FONT");
+    if (undoButton.empty())
+        addToolItemsfromName("UNDO");
+    if (redoButton.empty())
+        addToolItemsfromName("REDO");
+
+    if (audioPausePlaybackButton.empty())
+        addToolItemsfromName("AUDIO_PAUSE_PLAYBACK");
+    if (audioStopPlaybackButton.empty())
+        addToolItemsfromName("AUDIO_STOP_PLAYBACK");
+    if (audioSeekBackwardsButton.empty())
+        addToolItemsfromName("AUDIO_SEEK_BACKWARDS");
+    if (audioSeekForwardsButton.empty())
+        addToolItemsfromName("AUDIO_SEEK_FORWARDS");
+
+    if (toolPageSpinner.empty())
+        addToolItemsfromName("PAGE_SPIN");
+    if (toolPageLayer.empty())
+        addToolItemsfromName("LAYER");
+
+    if (fontButton.empty())
+        addToolItemsfromName("SELECT_FONT");
 }
 
 AbstractToolItem* ToolMenuHandler::addToolItemsfromName(string name) {
